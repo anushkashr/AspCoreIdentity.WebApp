@@ -1,4 +1,5 @@
 namespace AspCoreIdentity.WebApp.Models
+
 {
     public class ErrorViewModel
     {

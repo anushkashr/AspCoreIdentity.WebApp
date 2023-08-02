@@ -22,7 +22,7 @@ namespace AspCoreIdentity.WebApp.Controllers
 		{
             if(ModelState.IsValid)
             {
-                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+                var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, false);
                 if(result.Succeeded)
                 {
                     return RedirectToAction("index", "Home");
@@ -34,6 +34,12 @@ namespace AspCoreIdentity.WebApp.Controllers
 		public IActionResult Register()
         {
             return View();
+        }
+
+        public async Task<IActionResult> LogOut()
+        {
+            await _signInManager.SignOutAsync();
+            return RedirectToAction("Login");
         }
 
     }
