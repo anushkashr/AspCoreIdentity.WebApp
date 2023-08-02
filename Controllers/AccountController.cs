@@ -36,7 +36,17 @@ namespace AspCoreIdentity.WebApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> LogOut()
+        [HttpPost]
+		public IActionResult Register(UserRegistrationViewModel model)
+		{
+            if (ModelState.IsValid)
+            {
+
+            }
+				return View(model);
+		}
+
+		public async Task<IActionResult> LogOut()
         {
             await _signInManager.SignOutAsync();
             return RedirectToAction("Login");

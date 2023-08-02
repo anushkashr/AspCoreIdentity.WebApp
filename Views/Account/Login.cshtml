@@ -9,16 +9,16 @@
 
 <div class="row justify-content-sm-center h-100">
 	<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
-		<div class="text-center my-5">
+		<div class="text-center my-3">
 			<img src="~/user.png" alt="logo" width="100" />
 		</div>
 		<div class="card shadow-lg">
 			<div class="card-body p-5">
-				<h1 class="fs-4 card-title fw-bold mb-4">Login</h1>
+				<h1 class="fs-4 card-title fw-bold text-center mb-4">Login</h1>
 				<div class="text-danger" asp-validation-summary="All"></div>
 				<form method="POST" class="needs-validation" novalidate="" autocomplete="off">
 					<div class="mb-3">
-						<label asp-for="Email" class="mb-2 text-muted">E-Mail Address</label>
+						<label asp-for="Email" class="mb-2 text-muted">Email Address</label>
 						<input asp-for="Email" class="form-control" autocomplete="off">
 						<span asp-validation-for="Email" class="text-danger"></span>
 					</div>
@@ -47,12 +47,12 @@
 			</div>
 			<div class="card-footer py-3 border-0">
 				<div class="text-center">
-					Don't have an account? <a href="register.html" class="text-dark">Create One</a>
+					Don't have an account? <a asp-action="Register" asp-controller="Account" class="text-dark">Create One</a>
 				</div>
 			</div>
 		</div>
 		<div class="text-center mt-5 text-muted">
-			Copyright © 2017-2021 — Your Company
+			Copyright © @DateTime.Now.Year — Broadway LLC
 		</div>
 	</div>
 </div>

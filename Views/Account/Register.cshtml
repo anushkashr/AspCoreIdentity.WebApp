@@ -1,1 +1,49 @@
-﻿
+﻿@using AspCoreIdentity.WebApp.ViewModel;
+@model UserRegistrationViewModel
+
+<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+
+@{
+    Layout = null;
+}
+
+<div class="row justify-content-sm-center h-100">
+	<div class="col-xxl-4 col-xl-5 col-lg-5 col-md-7 col-sm-9">
+		<div class="text-center my-3">
+			<img src="~/user.png" alt="logo" width="100" />
+		</div>
+		<div class="card shadow-lg">
+			<div class="card-body p-5">
+				<h1 class="fs-4 card-title fw-bold text-center mb-4">Register</h1>
+				<div class="text-danger" asp-validation-summary="All"></div>
+				<form method="POST" class="needs-validation" novalidate="" autocomplete="off">
+					<div class="mb-3">
+						<label asp-for="Email" class="mb-2 text-muted">Email Address</label>
+						<input asp-for="Email" class="form-control" autocomplete="off">
+						<span asp-validation-for="Email" class="text-danger"></span>
+					</div>
+
+					<div class="mb-3">
+						<div class="mb-2 w-100">
+							<label class="text-muted" asp-for="Password">Password</label>
+						</div>
+						<input asp-for="Password" type="password" class="form-control" autocomplete="off">
+						<span asp-validation-for="Password" class="text-danger"></span>
+					</div>
+					<div class="mb-3">
+						<div class="mb-2 w-100">
+							<label class="text-muted" asp-for="ConfirmPassword">Confirm Password</label>
+						</div>
+						<input asp-for="ConfirmPassword" type="password" class="form-control" autocomplete="off">
+						<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+					</div>
+					<button type="submit" class="btn btn-primary ms-auto">Register</button>
+				</form>
+			</div>
+			
+		</div>
+		<div class="text-center mt-5 text-muted">
+			Copyright © @DateTime.Now.Year — Broadway LLC
+		</div>
+	</div>
+</div>
