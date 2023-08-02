@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.6.33815.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspCoreIdentity.WebApp", "AspCoreIdentity.WebApp.csproj", "{98D648AB-116D-408C-9198-8B7CBD83FBC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspCoreIdentity.WebApp", "AspCoreIdentity.WebApp.csproj", "{98D648AB-116D-408C-9198-8B7CBD83FBC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.DataAccessLayer", "..\Identity.DataAccessLayer\Identity.DataAccessLayer.csproj", "{CE42F99D-267A-4EBF-8F6A-0616E8D1AE52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Identity.DataAccessLayer", "..\Identity.DataAccessLayer\Identity.DataAccessLayer.csproj", "{CE42F99D-267A-4EBF-8F6A-0616E8D1AE52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Identity.Models", "..\Identity.Models\Identity.Models.csproj", "{80746661-2A1D-4BFE-9441-EF42C1018F7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{CE42F99D-267A-4EBF-8F6A-0616E8D1AE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE42F99D-267A-4EBF-8F6A-0616E8D1AE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE42F99D-267A-4EBF-8F6A-0616E8D1AE52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80746661-2A1D-4BFE-9441-EF42C1018F7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80746661-2A1D-4BFE-9441-EF42C1018F7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80746661-2A1D-4BFE-9441-EF42C1018F7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80746661-2A1D-4BFE-9441-EF42C1018F7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
