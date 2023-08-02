@@ -7,10 +7,12 @@ namespace AspCoreIdentity.WebApp.Controllers
     public class AccountController : Controller
     {
         private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager)
+        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
         {
             _signInManager = signInManager;
+            _userManager = userManager;
         }
         public IActionResult Login()
         {
@@ -37,11 +39,30 @@ namespace AspCoreIdentity.WebApp.Controllers
         }
 
         [HttpPost]
-		public IActionResult Register(UserRegistrationViewModel model)
+		public async Task<IActionResult> Register(UserRegistrationViewModel model)
 		{
             if (ModelState.IsValid)
             {
+                var user = new IdentityUser()
+                {
+                    Email = model.Email,
+                    UserName = model.Email
+                };
 
+                var result = await _userManager.CreateAsync(user, model.Password);
+
+                if(result.Succeeded)
+                {
+                    await _signInManager.PasswordSignInAsync(model.Email, model.Password, false, false);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    foreach(var error in result.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Code+ "" + error.Description);
+                    }
+                }
             }
 				return View(model);
 		}
