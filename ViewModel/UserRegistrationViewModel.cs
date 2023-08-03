@@ -15,6 +15,15 @@ namespace AspCoreIdentity.WebApp.ViewModel
         [Required]
         [Compare("Password", ErrorMessage ="Password and Confirm Password do not match!")]
         public string ConfirmPassword { get; set; }
-        
-    }
+
+		[Required]
+		public string FirstName { get; set; }
+		[Required]
+		public string LastName { get; set; }
+		[Required]
+		public string Address { get; set; }
+
+		public string Photo { get; set; }
+
+	}
 }
