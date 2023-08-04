@@ -1,11 +1,13 @@
 ﻿using AspCoreIdentity.WebApp.ViewModel;
 using Identity.Models.Entity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AspCoreIdentity.WebApp.Controllers
 {
-    public class AccountController : Controller
+	[AllowAnonymous]
+	public class AccountController : Controller
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
@@ -19,6 +21,7 @@ namespace AspCoreIdentity.WebApp.Controllers
             _userManager = userManager;
             _webHostEnvironment = webHostEnvironment;
         }
+     
         public IActionResult Login()
         {
             return View();

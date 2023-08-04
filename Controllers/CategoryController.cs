@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace AspCoreIdentity.WebApp.Controllers
 {
-    [Authorize]
+
     public class CategoryController : Controller
     {
         public IActionResult Index()
