@@ -1,4 +1,5 @@
 ﻿using AspCoreIdentity.WebApp.ViewModel;
+using Identity.Models.Entity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -6,10 +7,10 @@ namespace AspCoreIdentity.WebApp.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public AccountController(SignInManager<IdentityUser> signInManager, UserManager<IdentityUser> userManager)
+        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
         {
             _signInManager = signInManager;
             _userManager = userManager;
@@ -41,9 +42,10 @@ namespace AspCoreIdentity.WebApp.Controllers
         [HttpPost]
 		public async Task<IActionResult> Register(UserRegistrationViewModel model)
 		{
+            ModelState.Remove("Photo");
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser()
+                var user = new ApplicationUser()
                 {
                     Email = model.Email,
                     UserName = model.Email

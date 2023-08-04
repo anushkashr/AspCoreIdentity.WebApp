@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>07406119-3735-4cca-83e7-24f9ffaba8dc</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,6 +21,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Identity.DataAccessLayer\Identity.DataAccessLayer.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>

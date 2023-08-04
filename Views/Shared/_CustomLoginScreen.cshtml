@@ -1,7 +1,8 @@
-﻿@using Microsoft.AspNetCore.Identity;
+﻿@using Identity.Models.Entity;
+@using Microsoft.AspNetCore.Identity;
 
-@inject SignInManager<IdentityUser> _signInManager
-@inject UserManager<IdentityUser> _userManager
+@inject SignInManager<ApplicationUser> _signInManager
+@inject UserManager<ApplicationUser> _userManager
 
 <ul class="navbar-nav">
     
