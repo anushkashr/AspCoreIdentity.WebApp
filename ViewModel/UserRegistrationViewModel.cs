@@ -20,10 +20,10 @@ namespace AspCoreIdentity.WebApp.ViewModel
 		public string FirstName { get; set; }
 		[Required]
 		public string LastName { get; set; }
-		[Required]
-		public string Address { get; set; }
+		
+		public string? Address { get; set; }
 
-		public string Photo { get; set; }
+		public string? Photo { get; set; }
 
 	}
 }
