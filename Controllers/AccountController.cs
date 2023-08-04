@@ -51,9 +51,15 @@ namespace AspCoreIdentity.WebApp.Controllers
             }
             string uploadToFolder = Path.Combine(_webHostEnvironment.WebRootPath, "profile_img");
             //generate random/unique id for uploaded photo
-            string FileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            string fileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            
             //full file path
-            return string.Empty;
+            string fullFilePath = Path.Combine(uploadToFolder,fileName);
+            using (var fileStream = new FileStream(fullFilePath, FileMode.Create))
+            {
+                file.CopyTo(fileStream);
+            }
+            return fileName;
         }
 
         [HttpPost]
@@ -71,7 +77,8 @@ namespace AspCoreIdentity.WebApp.Controllers
                     UserName = model.Email,
                     FirstName = model.FirstName,
                     LastName = model.LastName,
-                    Address = model.Address
+                    Address = model.Address,
+                    Photo = userImg
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
