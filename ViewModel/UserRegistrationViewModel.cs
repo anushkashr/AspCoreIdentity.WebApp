@@ -23,7 +23,7 @@ namespace AspCoreIdentity.WebApp.ViewModel
 		
 		public string? Address { get; set; }
 
-		public string? Photo { get; set; }
+		public IFormFile Photo { get; set; }
 
 	}
 }

@@ -9,11 +9,15 @@ namespace AspCoreIdentity.WebApp.Controllers
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
+        //to reach to root url
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager)
+        public AccountController(SignInManager<ApplicationUser> signInManager, UserManager<ApplicationUser> userManager, 
+            IWebHostEnvironment webHostEnvironment)
         {
             _signInManager = signInManager;
             _userManager = userManager;
+            _webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Login()
         {
@@ -39,12 +43,28 @@ namespace AspCoreIdentity.WebApp.Controllers
             return View();
         }
 
+        private string UploadPhoto(IFormFile file)
+        {
+            if (file==null)
+            {
+                return string.Empty;
+            }
+            string uploadToFolder = Path.Combine(_webHostEnvironment.WebRootPath, "profile_img");
+            //generate random/unique id for uploaded photo
+            string FileName = Guid.NewGuid().ToString() + "_" + file.FileName;
+            //full file path
+            return string.Empty;
+        }
+
         [HttpPost]
 		public async Task<IActionResult> Register(UserRegistrationViewModel model)
 		{
-            ModelState.Remove("Photo");
+            //ModelState.Remove("Photo");
             if (ModelState.IsValid)
             {
+                //1. Upload Photo
+                string userImg = UploadPhoto(model.Photo);
+
                 var user = new ApplicationUser()
                 {
                     Email = model.Email,
