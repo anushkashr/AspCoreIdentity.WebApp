@@ -48,7 +48,10 @@ namespace AspCoreIdentity.WebApp.Controllers
                 var user = new ApplicationUser()
                 {
                     Email = model.Email,
-                    UserName = model.Email
+                    UserName = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Address = model.Address
                 };
 
                 var result = await _userManager.CreateAsync(user, model.Password);
